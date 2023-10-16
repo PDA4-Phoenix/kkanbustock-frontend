@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // useNavigate를 불러옵니다.
 import commonStyles from './styles/main-page.module.css';
 import styles from './styles/today-quiz-box.module.css';
 
@@ -6,6 +7,8 @@ const TodayQuizBox = ({ stockQuiz, customStyle }) => {
   const [answered, setAnswered] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isCorrect, setIsCorrect] = useState(null);
+
+  const navigate = useNavigate();
 
   const handleAnswerClick = (selectedAnswer) => {
     if (answered) {
@@ -16,6 +19,8 @@ const TodayQuizBox = ({ stockQuiz, customStyle }) => {
     setSelectedAnswer(selectedAnswer);
     setIsCorrect(isAnswerCorrect);
     setAnswered(true);
+
+    navigate('/Quiz'); // 이동할 경로를 지정
   };
 
   const getAnswerClass = (answer) => {
@@ -29,8 +34,13 @@ const TodayQuizBox = ({ stockQuiz, customStyle }) => {
     return "";
   };
 
+  const handleContainerClick = () => {
+    // styles.container를 클릭했을 때 이벤트를 처리하는 함수
+    navigate('/Quiz'); // 이동할 경로를 지정
+  };
+
   return (
-    <div className={`${commonStyles.flex_box} ${styles.container}`}>
+    <div className={`${commonStyles.flex_box} ${styles.container}`} onClick={handleContainerClick}>
       <div className={styles.title2}>오늘의 퀴즈</div>
       <div className={`${styles.dailyQuizQnASet2} ${answered ? styles.answered2 : ""}`}>
         <div className={styles.question2}>{stockQuiz[0].content}</div>

@@ -1,12 +1,13 @@
 import React from 'react';
 import NewsBox from "../news-box";
+import { useHistory } from 'react-router-dom';
 import styles from '../styles/main-page.module.css';
 import TodayQuizBox from "../today-quiz-box";
 import DictionaryBox from "../dictionary-box";
 import DailyQuiz from '../../Quiz/DailyQuiz/DailyQuiz';
 
-const TopLayout = ({ history }) => {
-  // 임의의 오늘의 퀴즈 데이터
+const TopLayout = () => {
+
   const StockQuiz = [
     {
       id: 1,
@@ -17,16 +18,12 @@ const TopLayout = ({ history }) => {
     },
   ];
 
-  const handleQuizBoxClick = () => {
-    // 퀴즈 페이지로 이동
-    history.push('/Quiz');
-  };
 
   return (
     <div className={styles.container}>
       <div className={styles.child_container}>
         <section className={styles.row_container}>
-          <TodayQuizBox stockQuiz={StockQuiz} onClick={handleQuizBoxClick} />
+          <TodayQuizBox stockQuiz={StockQuiz}/>
           <NewsBox />
           <NewsBox />
           <NewsBox />
