@@ -8,22 +8,33 @@
 }
 
 .once_short_box {
+    background: linear-gradient(
+        45deg,
+        #d0f6ff 0%,
+        #6bb0ff 100%
+      );
     width: 100%;
     aspect-ratio: 1;
     box-sizing: border-box;
     margin-bottom: 10px;
     flex-grow: 0;
     padding: 30px;
-    border-radius: 5%;
+    border-radius: 10px;
+    transition: transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.once_short_box:hover {
+    transform: scale(1.01);
+}
 .left_layout {
-    width: 33%;
+    width: 32%;
     display: flex;
     aspect-ratio: 1;
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
+    border-radius: 10px;
 }
 
 @media screen and (max-width: 1200px) {

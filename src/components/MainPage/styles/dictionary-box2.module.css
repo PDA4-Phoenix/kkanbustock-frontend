@@ -1,9 +1,22 @@
 .container2 {
-    background: #E1F4FD !important;
+    background: linear-gradient(
+        125deg,
+        #e2faff 0%,
+        #b0d5ff 100%
+      );      
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     height: fit-content;
+    transition: transform 0.2s;
+    width: 66%;
+    height: 44%;    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.container2:hover {
+    transform: scale(1.01);
 }
 
 .header2 {

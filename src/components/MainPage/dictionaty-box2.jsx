@@ -1,5 +1,4 @@
 import React from 'react';
-import style from './styles/new-box.module.css';
 import commonStyles from './styles/main-page.module.css';
 import styles from "./styles/dictionary-box2.module.css";
 import dicImg from '../../assets/images/SOL_search.png';

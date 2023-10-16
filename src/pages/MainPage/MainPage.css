@@ -4,7 +4,7 @@
   margin-bottom: 5vh;
 }
 .rankingSection {
-    width: 70vw;
+    width: 65vw;
     display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -12,7 +12,7 @@
   }
   
 .cardSection{
-    width: 70vw;
+    width: 65vw;
     display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap; 
