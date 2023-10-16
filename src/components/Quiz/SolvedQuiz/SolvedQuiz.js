@@ -1,5 +1,5 @@
 import React from "react";
-import "./SolvedQuiz.css";
+import solveStyle from "./SolvedQuiz.module.css";
 
 const SolvedQuiz = ({
   questionNumber,
@@ -9,20 +9,24 @@ const SolvedQuiz = ({
   correctAnswer,
   isCorrect,
 }) => {
-  const resultClassName = isCorrect ? "correct" : "incorrect";
+  const resultClassName = isCorrect ? solveStyle.correct : solveStyle.incorrect;
 
   return (
-    <div className="solvedItem">
-      <div className="solved-quiz">
-        <div className="solvedQuizItem">
-          <div className="questionNumber">{questionNumber}</div>
-          <div className="date">{date}</div>
-          <div className="questionSet">
-            <div className="qustion">{question}</div>
-            <div className="explanation">{explanation}</div>
+    <div className={solveStyle.solvedItem}>
+      <div className={solveStyle["solved-quiz"]}>
+        <div className={solveStyle.solvedQuizItem}>
+          <div className={solveStyle.questionNumber}>{questionNumber}</div>
+          <div className={solveStyle.date}>{date}</div>
+          <div className={solveStyle.questionSet}>
+            <div className={solveStyle.qustion}>{question}</div>
+            <div className={solveStyle.explanation}>{explanation}</div>
           </div>
-          <div className="corretAnswer ${resultClassName}">{correctAnswer}</div>
-          <div className={`isCorrect ${resultClassName}`}>
+          <div className={solveStyle.corretAnswer}>{correctAnswer}</div>
+          <div
+            className={`${solveStyle.isCorrect} ${
+              isCorrect ? solveStyle.correct : solveStyle.incorrect
+            }`}
+          >
             {isCorrect ? "정답" : "오답"}
           </div>
         </div>

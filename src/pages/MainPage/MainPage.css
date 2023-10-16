@@ -1,12 +1,18 @@
+.titleForMain{
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 5vh;
+}
 .rankingSection {
-    width: 80vw;
+    width: 70vw;
     display: inline-flex;
     flex-direction: row;
-    flex-wrap: wrap; /* Allow items to wrap to a new row when the screen size decreases */
+    flex-wrap: wrap;
+    margin-top: -15vh;
   }
   
 .cardSection{
-    width: 80vw;
+    width: 70vw;
     display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap; 

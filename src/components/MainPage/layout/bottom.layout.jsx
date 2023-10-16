@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "../styles/main-page.module.css";
 import TodayQuizBox from "../today-quiz-box";
-import NewBox from "../new-box";
+import NewsBox from "../news-box";
 import DictionaryBox2 from '../dictionaty-box2';
 
 const BottomLayout = () => {
@@ -9,10 +9,10 @@ const BottomLayout = () => {
         <div className={styles.container}>
             <div className={styles.child_container}>
                 <section className={styles.row_container}>
-                    <NewBox/>
-                    <NewBox/>
-                    <NewBox/>
-                    <NewBox/>
+                    <NewsBox/>
+                    <NewsBox/>
+                    <NewsBox/>
+                    <NewsBox/>
                     <DictionaryBox2/>
                 </section>
             </div>

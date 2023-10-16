@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "../styles/main-page.module.css";
 import onceLayoutStyles from '../styles/once-layout.module.css';
-import NewBox from "../new-box";
+import NewsBox from "../news-box";
 import InvestmentAppetiteBox from "../investment-appetite-box";
 import StockBox from "../stock-box";
 
@@ -11,7 +11,7 @@ const OnceLayout = () => {
             <div className={styles.child_container}>
                 <section className={onceLayoutStyles.layout}>
                   <div className={onceLayoutStyles.left_layout}>
-                    <NewBox className={onceLayoutStyles.once_short_box}/>
+                    <NewsBox className={onceLayoutStyles.once_short_box}/>
                     <StockBox className={onceLayoutStyles.once_short_box}/>
                   </div>
                   <InvestmentAppetiteBox/>

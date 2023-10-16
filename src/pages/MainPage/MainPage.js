@@ -45,10 +45,13 @@ function Main() {
   return (
     <div>
       <MainPoint />
+      <div className="titleForMain">'깐부 내기 랭킹'</div>
       <div className="rankingSection">
         <MonthlyRank />
         {isLoggedIn && <MyGRoupRanking />}
       </div>
+      <div className="titleForMain">'당신을 위한 오늘의 증권 소식'</div>
+
       <div className="cardSection">
         <TopLayout />
         <OnceLayout />

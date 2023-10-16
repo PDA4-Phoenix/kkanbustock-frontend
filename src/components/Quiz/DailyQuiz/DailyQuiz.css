@@ -75,12 +75,12 @@
 }
 
 .answer.correct {
-  background-color: #2ecc71;
+  background-color: #f5f5f5;
   color: #ffffff;
 }
 
 .answer.incorrect {
-  background-color: #e74c3c;
+  background-color: #ffe4e1;
   color: #ffffff;
 }
 

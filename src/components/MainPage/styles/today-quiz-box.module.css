@@ -1,55 +1,108 @@
 .container {
-    background: #9FC9FB;
+    background: linear-gradient(135deg, #c4d6ff 0%, rgb(54, 148, 255) 100%);
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.2s;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    text-decoration: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-radius: 15px;
 }
 
-.title {
-    font-size: 2rem;
+.container:hover {
+    transform: scale(1.05);
+}
+
+.title2 {
+    font-size: 1.8rem;
     font-weight: bold;
+    height: 20%;
+}
+.question2{
+    font-size: 1.8rem;
+    font-weight: normal;
+}
+.answer2:disabled {
+    font-size: 1.8rem;
+    margin: 5px;
 }
 
-.content {
-    margin-top: 30px;
-    margin-bottom: 30px;
+.explanation2 {
     font-size: 1.5rem;
+    margin: 10px;
+    font-weight: normal;
 }
 
-.button_group {
+.oxbtn2 {
     display: flex;
+    flex-direction: row;
     justify-content: center;
 }
 
-.button_o {
-    margin-right: 15px;
-    background: black;
-    display: flex;
-    font-weight: bold;
-    font-size: 1.2rem;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
+.oxbtn2 .selected2 {
+    background-color: #0047FF;
     color: white;
-    border-radius: 5px;
+    cursor: default;
 }
 
-.button_o:hover, .button_x:hover{
-    opacity: 0.5;
+.answer2 {
+    width: 70px;
+    height: 70px;
+    background-color: transparent;
+    border: 0px solid rgb(0, 0, 0);
+    border-radius: 0.6em;
+    color: #4a4a4a;
     cursor: pointer;
-}
-
-.button_x {
-    background: white;
-    border: 1px solid #c9c9c9;
     display: flex;
-    font-weight: bold;
-    font-size: 1.2rem;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
-    color: #c9c9c9;
-    border-radius: 5px;
+    align-self: center;
+    line-height: 3;
+    margin: 0px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 2rem;
+    transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.answer2:hover {
+    background-color: #0047FF;
+    color: white;
+}
+
+.answer2.correct,
+.answer2.incorrect {
+    background-color: #0b2fff;
+    color: #ffffff;
+}
+
+.answer2:disabled {
+    cursor: not-allowed;
+}
+
+.answerStatus2 {
+    font-size: 1.4rem;
+    margin: 10px;
+    text-align: center;
+    font-weight: normal;
+    color: white;
+}
+
+/* 이미 선택된 버튼에 대한 스타일 (선택되지 않은 상태) */
+.answer2.answered .oxbtn2 button:not(.selected) {
+    transition: none;
+}
+
+.answer2.answered .oxbtn2 button.selected {
+    background-color: #0047FF;
+    color: white;
+    cursor: default;
 }
