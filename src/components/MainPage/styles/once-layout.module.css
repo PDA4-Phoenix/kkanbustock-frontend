@@ -14,6 +14,7 @@
         #6bb0ff 100%
       );
     width: 100%;
+    height: max-content;
     aspect-ratio: 1;
     box-sizing: border-box;
     margin-bottom: 10px;
@@ -29,6 +30,7 @@
 }
 .left_layout {
     width: 32%;
+    height: max-content;
     display: flex;
     aspect-ratio: 1;
     flex-direction: column;
@@ -42,14 +44,18 @@
         margin-top: 10px;
         flex-direction: column;
         align-items: center;
+        height: max-content;
     }
 
     .once_short_box {
         width: 45%;
+        height: max-content;
+        
     }
 
     .left_layout {
         width: 100%;
+        height: max-content;
         aspect-ratio: 2;
         flex-direction: row;
     }

@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: fit-content;
+    height: max-content;
     transition: transform 0.2s;
     width: 66%;
     height: 44%;    
@@ -52,4 +52,41 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+
+@media screen and (max-width: 1200px) {
+    .container2 {
+        background: linear-gradient(
+            125deg,
+            #e2faff 0%,
+            #b0d5ff 100%
+          );      
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: max-content;
+        transition: transform 0.2s;
+        width: 100%;
+        height: 44%;    
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+    }
+}
+
+@media screen and (max-width: 868px) {
+    .container2 {
+        width: 100%;
+        height: max-content;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .container2 {
+        width: 100%;
+        height: max-content;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+    }
 }
