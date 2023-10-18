@@ -54,6 +54,11 @@ function Login() {
         //   console.log(token)
           setToken(token);
           setId(response.data.member.id);
+
+          localStorage.setItem('user',JSON.stringify({
+            id: id,
+            token: token,
+          })) 
           
           console.log(token);
           console.log(id);
