@@ -26,8 +26,6 @@ function Quiz() {
       }
 
   const [quizContents, setQuizContents] = useState([]); // API에서 가져온 데이터를 저장하는 상태
-//   const { token } = useToken();
-//   const { memberId } = useMemberId();
 
     const userJSON = localStorage.getItem('user');
     const userObject = JSON.parse(userJSON);
