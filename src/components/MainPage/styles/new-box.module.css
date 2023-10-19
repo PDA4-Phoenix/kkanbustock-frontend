@@ -24,7 +24,7 @@
 .header {
     display: flex;
     justify-content: space-between;
-    font-size: 140%;
+    font-size: 80%;
     font-weight: bold;
 }
 
