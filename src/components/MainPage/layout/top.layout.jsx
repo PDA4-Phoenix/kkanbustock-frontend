@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import NewsBox from "../news-box";
 import styles from "../styles/main-page.module.css";
 import TodayQuizBox from "../today-quiz-box";
 import DictionaryBox from "../dictionary-box";
+import { axiosF } from "../../../apis";
 
 const TopLayout = ({ dict, news }) => {
   const userId = "choi"; // 예를 들어 userId를 하드코딩하거나 props로 가져옵니다.
