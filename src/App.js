@@ -15,7 +15,8 @@ import { MemberProvider } from './pages/LoginPage/MemberContext';
 import InvestType_intro from "./pages/InvestTypePage/IntroPage";
 import InvestType_question from "./pages/InvestTypePage/QuestionPage";
 import InvestType_result from "./pages/InvestTypePage/ResultPage";
-
+import CompleteGroupPage from "./pages/MakeGroupPage/ViewGroupCodePage";
+import CreateGroupPage from "./pages/MakeGroupPage/CreateGroupPage";
 function App() {
   const [scroll, setScroll] = useState(0);
 
@@ -36,6 +37,8 @@ function App() {
           <Route path="/InvestType/Intro" element={<InvestType_intro />} />
           <Route path="/InvestType/Question" element={<InvestType_question />} />
           <Route path="/InvestQuestion/Result" element={<InvestType_result />} />
+          <Route path="/CreateGroup" element={<CreateGroupPage />} />
+          <Route path="/CompleteGroup" element={<CompleteGroupPage />} />
 
           <Route path="/Login" element={<LoginPage />} />
         </Routes>

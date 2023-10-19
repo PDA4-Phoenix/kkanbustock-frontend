@@ -36,7 +36,7 @@ function MyGroupComponent({ memberId, onGroupItemClick }) {
           <MyGroupItem key={index} groupName={group.name} onClick={handleGroupItemClick} />
         ))}
       </div>
-      <BlueLargeBtn title="그룹 생성하기"></BlueLargeBtn>
+      <BlueLargeBtn title="그룹 생성하기" link={"/CreateGroup"}></BlueLargeBtn>
     </div>
   );
 }

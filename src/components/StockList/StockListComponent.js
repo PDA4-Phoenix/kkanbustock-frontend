@@ -8,8 +8,8 @@ import { axiosF } from "../../apis";
 function StockListComponent({
   width,
   height,
-  userName = "나",
-  memberId = "나",
+  userName = "dd",
+  memberId = "dd",
 }) {
   const [stockDataList, setStockDataList] = useState([]);
   const [manyStockName, setManyStockName] = useState(""); // 가장 많이 투자한 종목을 저장할 상태

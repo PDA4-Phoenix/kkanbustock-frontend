@@ -1,34 +1,34 @@
 
 
-.informCodeContent{
-    height:400px;
-    width:500px;
-    margin-left: 20px;
+.CreateGroupPage-container{
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .informCodeContent>h3{
     font-size: 30px;
 }
 
+.CreateGroupComplete{
+    padding: 10px;
+}
+
 .groupCode{
     text-align: end;
 }
 
-.informCodeContent>h3>span{
-    color: #0045FF;
-    font-weight: bold;
-    font-family: OneShinhan;
-    font-size: 60px;
-    letter-spacing: 30px;
-}
 
 .informCodeContent>p{
     color: #555;
     font-size: 15px;
 }
 
-.informCodeContent>p>a{
+.CreateGroupComplete{
     color: #0045FF;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold;
 }

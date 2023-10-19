@@ -63,7 +63,7 @@ function RivalPage() {
             <StockListComponent memberId={memberId} width="800px" height="100%"></StockListComponent>
           </div>
         )}
-        <BlueLargeBtn title="투자하러 가기"></BlueLargeBtn>
+        <BlueLargeBtn title="투자하러 가기" link="https://www.shinhansec.com/" />
         <MyGroupComponent memberId={memberId} onGroupItemClick={handleGroupItemClick} />
       </div>
     </div>

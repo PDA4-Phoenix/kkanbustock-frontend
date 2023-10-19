@@ -89,49 +89,49 @@ function Login() {
             </div>
         </div>
     )
-  return (
-    <div>
-      <Header name="LOGIN" />
-      <div>
-        <div>
-          <input
-            className="input_group"
-            placeholder="ID"
-            type="text"
-            name="id"
-            value={loginData.id}
-            onChange={handleInput}
-          />
-        </div>
-        <div>
-          <input
-            className="input_group"
-            placeholder="비밀번호"
-            type="password"
-            name="password"
-            value={loginData.password}
-            onChange={handleInput}
-          />
-        </div>
-      </div>
-      <div id="button_group">
-        <div>
-          <button className="button" type="button" onClick={onClickLogin}>
-            로그인
-          </button>
-        </div>
-        <div>
-          <button className="button" type="button" onClick={onClickLogin}>
-            회원가입
-          </button>
-        </div>
-        <div>
-          <label id="explanation">로그인없이 들어갈 수 있어요</label>
-          <label id="guestLogin">구경하기{">"}</label>
-        </div>
-      </div>
-    </div>
-  );
+//   return (
+//     <div>
+//       <Header name="LOGIN" />
+//       <div>
+//         <div>
+//           <input
+//             className="input_group"
+//             placeholder="ID"
+//             type="text"
+//             name="id"
+//             value={loginData.id}
+//             onChange={handleInput}
+//           />
+//         </div>
+//         <div>
+//           <input
+//             className="input_group"
+//             placeholder="비밀번호"
+//             type="password"
+//             name="password"
+//             value={loginData.password}
+//             onChange={handleInput}
+//           />
+//         </div>
+//       </div>
+//       <div id="button_group">
+//         <div>
+//           <button className="button" type="button" onClick={onClickLogin}>
+//             로그인
+//           </button>
+//         </div>
+//         <div>
+//           <button className="button" type="button" onClick={onClickLogin}>
+//             회원가입
+//           </button>
+//         </div>
+//         <div>
+//           <label id="explanation">로그인없이 들어갈 수 있어요</label>
+//           <label id="guestLogin">구경하기{">"}</label>
+//         </div>
+//       </div>
+//     </div>
+//   );
 }
 
 export default Login;
