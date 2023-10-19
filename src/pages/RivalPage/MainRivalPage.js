@@ -1,6 +1,6 @@
 // RivalPage.js
 import React, { useState, useEffect } from 'react';
-import MolyTip from '../../components/MolyComponent/MolyTip';
+import MolyTip from "../../components/MolyComponent/MolyTip";
 import { useMemberId } from './../../MemberIdContext';
 import StockListComponent from '../../components/StockList/StockListComponent';
 import ViewScoreComponent from '../../components/ViewScore/ViewScoreComponent';

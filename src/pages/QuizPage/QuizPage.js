@@ -3,7 +3,7 @@ import "./QuizPage.css";
 import Header from "../../components/Header/Header";
 import DailyQuiz from "../../components/Quiz/DailyQuiz/DailyQuiz.js";
 import QuizHistory from "../../components/Quiz/QuizHistory/QuizHistory";
-import {axiosF} from "../../apis";
+import axios from 'axios';
 import { useToken } from '../LoginPage/TokenContext';
 import { useMemberId } from '../LoginPage/MemberContext';
 
@@ -11,7 +11,7 @@ function Quiz() {
     
     const getAxios = (token) => {
         const config = {
-          baseURL: 'http://localhost:8080',
+          baseURL: 'service.team-4.svc.cluster.local:8080',
           headers: {
             'accept': 'application/json',
             'X-Requested-With': 'XMLHttpRequest',
@@ -24,7 +24,7 @@ function Quiz() {
             config.headers['authorization'] = `Bearer ${token}`;
         }
       
-        return axiosF.create(config);
+        return axios.create(config);
       }
 
   const [quizContents, setQuizContents] = useState([]); // API에서 가져온 데이터를 저장하는 상태
@@ -38,7 +38,7 @@ function Quiz() {
     // API에서 데이터를 가져오는 함수
     const fetchData = async () => {
       try {
-        const response = await getAxios(token).get(`/api/v1/quizzes/${memberId}`);
+        const response = await axios(token).get(`service.team-4.svc.cluster.local:8080/api/v1/quizzes/${memberId}`);
 
         console.log(token);
         console.log(memberId);

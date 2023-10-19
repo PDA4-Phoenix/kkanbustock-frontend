@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../../components/Header/Header';
 import styles from './SignUpPage.module.css';
-import {axiosF} from "../../apis";
+import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom'; 
 
 
@@ -17,8 +17,7 @@ function SignUpPage() {
 
 
     const handleSignUp = async () => {
-
-        axiosF.post('/api/v1/register', {
+        axios.post('service.team-4.svc.cluster.local:8080/api/v1/register', {
             id: id,
             name: name,
             email: email,
