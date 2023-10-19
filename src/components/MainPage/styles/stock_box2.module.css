@@ -32,6 +32,10 @@
 }
 
 .detail2 {
+    width: 95%;
+    justify-content: end;
+    display: flex;
+    flex-direction: row;
     text-align: right;
     font-weight: bold;
     padding-right: 20px;
@@ -61,4 +65,13 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+
+.greenArrow2{
+    color:red;
+}
+
+.redArrow2{
+    color:blue;
+
 }

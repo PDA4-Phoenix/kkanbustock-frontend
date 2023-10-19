@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import commonStyles from './styles/main-page.module.css';
 import styles from './styles/today-quiz-box.module.css';
-import axios from 'axios';
+import { axiosF } from '../../apis';
 
 const TodayQuizBox = ({ memberId = 'choi' }) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -26,7 +26,7 @@ const TodayQuizBox = ({ memberId = 'choi' }) => {
 
   const fetchQuiz = async () => {
     try {
-      const response = await axios.get(`/api/v1/quizzes/daily/${memberId}`);
+      const response = await axiosF.get(`/api/v1/quizzes/daily/${memberId}`);
       if (response.data) {
         const data = response.data;
         setQuiz({

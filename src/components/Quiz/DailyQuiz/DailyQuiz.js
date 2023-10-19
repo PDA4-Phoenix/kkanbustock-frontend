@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./DailyQuiz.css";
-import axios from "axios";
+import { axiosF } from "../../../apis";
 
 function DailyQuiz({ memberId }) {
   const [quiz, setQuiz] = useState({
@@ -19,7 +19,7 @@ function DailyQuiz({ memberId }) {
 
   const fetchQuiz = async () => {
     try {
-      const response = await axios.get(`/api/v1/quizzes/daily/${memberId}`);
+      const response = await axiosF.get(`/api/v1/quizzes/daily/${memberId}`);
       if (response.data) {
         const data = response.data;
         setQuiz({
@@ -71,7 +71,7 @@ function DailyQuiz({ memberId }) {
     }
 
     try {
-      await axios.post(`/api/v1/quizzes/daily`, {
+      await axiosF.post(`/api/v1/quizzes/daily`, {
         memberId: memberId,
         stockQuizId: quiz.quizId,
         isCorrect: isAnswerCorrect,

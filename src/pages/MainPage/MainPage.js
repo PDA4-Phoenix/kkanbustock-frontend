@@ -9,7 +9,7 @@ import BottomLayout from "../../components/MainPage/layout/bottom.layout";
 import OnceLayout from "../../components/MainPage/layout/once.layout";
 import InfiniteScroll from "react-infinite-scroll-component";
 import SecondTop from "../../components/MainPage/layout/secondtop.layout";
-import {axiosF} from "../../apis";
+import { axiosF } from "../../apis";
 
 function Main() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);

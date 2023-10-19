@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import './Carousel copy.css';
-import LibraryCardItem from './LibraryCardItem';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import "./Carousel copy.css";
+import LibraryCardItem from "./LibraryCardItem";
+import { axiosF } from "../../apis";
 
 function Carousel() {
   const [currCarousel, setCurrCarousel] = useState(1);
-  const [carouselTransition, setCarouselTransition] = useState('transform 500ms ease-in-out');
+  const [carouselTransition, setCarouselTransition] = useState(
+    "transform 500ms ease-in-out"
+  );
   const [dictionaryContents, setDictionaryContents] = useState([]); // API에서 가져온 데이터를 저장하는 상태
 
-  const makeNewDataArray = arr => {
+  const makeNewDataArray = (arr) => {
     const dataStart = arr[0];
     const dataEnd = arr[arr.length - 1];
     const modifiedArray = [dataEnd, ...arr, dataStart];
@@ -18,7 +20,7 @@ function Carousel() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/api/v1/dictionary'); // API 엔드포인트를 변경해야 할 수도..
+        const response = await axiosF.get("/api/v1/dictionary"); // API 엔드포인트를 변경해야 할 수도..
         setDictionaryContents(response.data);
         console.log("데이터 불러오기 성공");
         console.log(response.data);
@@ -30,7 +32,7 @@ function Carousel() {
             id: 1,
             word: "데이터 불러오기 실패:(",
             explanation: "데이터를 불러오지 못했습니다....:(",
-          }
+          },
         ]);
       }
     };
@@ -38,9 +40,9 @@ function Carousel() {
     fetchData();
   }, []); // 빈 배열을 두어 컴포넌트가 처음 렌더링될 때만 데이터를 가져오도록 설정
 
-  const moveToNthSlide = n => {
+  const moveToNthSlide = (n) => {
     setTimeout(() => {
-      setCarouselTransition('');
+      setCarouselTransition("");
       setCurrCarousel(n);
     }, 500);
   };
@@ -54,7 +56,7 @@ function Carousel() {
       moveToNthSlide(1);
     }
 
-    setCarouselTransition('transform 500ms ease-in-out');
+    setCarouselTransition("transform 500ms ease-in-out");
   };
 
   const slidePrevSoulsCarousel = () => {
@@ -66,31 +68,40 @@ function Carousel() {
       moveToNthSlide(soulSliderLength);
     }
 
-    setCarouselTransition('transform 500ms ease-in-out');
+    setCarouselTransition("transform 500ms ease-in-out");
   };
 
   return (
     <div id="carousel" className="noselect">
       <div className="carousel-container">
-        <div className="arrow arrow-left" onClick={() => slidePrevSoulsCarousel()}>
+        <div
+          className="arrow arrow-left"
+          onClick={() => slidePrevSoulsCarousel()}
+        >
           <i className="fi-arrow-left"></i>
         </div>
         <div className="carousel-items">
-          {dictionaryContents.length > 0 && dictionaryContents.map((dictionaryContent) => (
-            <div className='carousel-wrapper' key={dictionaryContent.id}
-              style={{
-                transform: `translateX(-${currCarousel * 310}px)`,
-                transition: `${carouselTransition}`,
-              }}
-            >
-              <LibraryCardItem
-                title={dictionaryContent.word}
-                description={dictionaryContent.explanation}
-              />
-            </div>
-          ))}
+          {dictionaryContents.length > 0 &&
+            dictionaryContents.map((dictionaryContent) => (
+              <div
+                className="carousel-wrapper"
+                key={dictionaryContent.id}
+                style={{
+                  transform: `translateX(-${currCarousel * 310}px)`,
+                  transition: `${carouselTransition}`,
+                }}
+              >
+                <LibraryCardItem
+                  title={dictionaryContent.word}
+                  description={dictionaryContent.explanation}
+                />
+              </div>
+            ))}
         </div>
-        <div className="arrow arrow-right" onClick={() => slideNextSoulsCarousel()}>
+        <div
+          className="arrow arrow-right"
+          onClick={() => slideNextSoulsCarousel()}
+        >
           <i className="fi-arrow-right"></i>
         </div>
       </div>

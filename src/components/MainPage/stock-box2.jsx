@@ -5,12 +5,15 @@ import styles2 from './styles/stock_box2.module.css'
 import stockImage from '../../assets/images/quiz1.png';
 
 const StockBox2 = ({ className, stockData}) => {
-    console.log("아 제발,",stockData);
-
-    const title = stockData.itmsNm || "현대차";
+    if (!stockData) {
+        return <div>Loading...</div>;
+    }
+    const title = stockData && stockData.itmsNm ? stockData.itmsNm : "현대차";
     const price = stockData.clpr || "213,000";
-    const detail = stockData.vs || 0;
-    const content = stockData.content || "대한민국 최고의 자동차 회사! 산업군 설명 설명 종목 간단 개요 개요";
+    const detail = stockData.vs || 500;
+    const content = stockData.content || "대한민국 최고의 자동차 회사! 당신의 투자를 응원합니다";
+    const isUp = detail > 0;
+    
     return (
         <div className={`${className ?? commonStyles.flex_box} ${styles2.container2}`}>
             <div className={styles2.title2}>
@@ -22,7 +25,12 @@ const StockBox2 = ({ className, stockData}) => {
             </div>
 
             <div className={styles2.detail2}>
-                {detail}
+                <div className={styles2.upOrdown2}>
+                    {isUp ? <span className={styles2.greenArrow2}>▲</span> : <span className={styles2.redArrow2}>▼</span>}
+                </div>
+                <div className={styles2.vs}>
+                    {Math.abs(detail)}
+                </div>
             </div>
 
             <div className={styles2.content2}>

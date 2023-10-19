@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import NewsBox from "../news-box";
 import styles from "../styles/main-page.module.css";
 import TodayQuizBox from "../today-quiz-box";

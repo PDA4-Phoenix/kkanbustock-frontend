@@ -9,8 +9,6 @@ const StockBox = ({ className, stock }) => {
     const price = stock?.[0]?.clpr || "213,000";
     const detail = stock?.[0]?.vs || 0;
     const content = stock?.[0]?.content || "대한민국 최고의 자동차 회사! 산업군 설명 설명 종목 간단 개요 개요";
-
-    // isUp 변수를 이용하여 상승 및 하락을 나타내는 화살표 표시
     const isUp = detail > 0;
 
     return (
@@ -28,12 +26,12 @@ const StockBox = ({ className, stock }) => {
                     </div>
                 </div>
                 <div className={styles.detail}>
-                <div className={styles.upOrdown}>
-                    {isUp ? <span className={styles.greenArrow}>▲</span> : <span className={styles.redArrow}>▼</span>}
-                </div>
-                <div className={styles.vs}>
-                    {Math.abs(detail)}
-                </div>
+                    <div className={styles.upOrdown}>
+                        {isUp ? <span className={styles.greenArrow}>▲</span> : <span className={styles.redArrow}>▼</span>}
+                    </div>
+                    <div className={styles.vs}>
+                        {Math.abs(detail)}
+                    </div>
                 </div>
             </section>
 
