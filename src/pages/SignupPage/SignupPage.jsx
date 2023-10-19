@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Header from '../../components/Header/Header';
 import styles from './SignUpPage.module.css';
 import {axiosF} from "../../apis";
+import { useNavigate, Link } from 'react-router-dom'; // useNavigate로 수정
+
 
 function SignUpPage() {
-
+    const navigate = useNavigate(); // useNavigate를 사용
     const [id, setAccount] = useState('');
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -15,6 +17,7 @@ function SignUpPage() {
 
 
     const handleSignUp = async () => {
+
         axiosF.post('/api/v1/register', {
             id: id,
             name: name,
@@ -22,6 +25,8 @@ function SignUpPage() {
             password: password
         }).then(res => {
             console.log(res.data);
+            navigate('/'); // '/' 경로로 이동 (MainPage로 이동)
+
         }).catch((e)=> {
             console.log(e);
         })

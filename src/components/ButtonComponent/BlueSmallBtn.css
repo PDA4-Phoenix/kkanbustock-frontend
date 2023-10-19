@@ -9,7 +9,7 @@
     color: #FFF;
     text-align: center;
     font-family: OneShinhan;
-    font-size: 15px;
+    font-size: 0.7em;
     transition: background 0.3s; /* background 속성에 대한 hover 트랜지션 설정 */
 }
 
