@@ -112,7 +112,7 @@ function Login() {
           </button>
         </div>
         <div>
-          <button className="button" type="button" onClick={onClickLogin}>
+          <button className="button" type="button" onClick={onClickSign}>
             회원가입
           </button>
         </div>

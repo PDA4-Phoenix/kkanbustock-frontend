@@ -17,7 +17,9 @@ function MolyTip({description,link,btnText="보러가기"}) {
                             <div className ="molyTipTitle">
                                 몰리의 꿀팁
                             </div>
-
+                            <div className="molyDescription">
+                                {description}
+                            </div>
 
                         </div>
                         <Link to={link}>
