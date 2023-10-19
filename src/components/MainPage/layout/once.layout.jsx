@@ -15,7 +15,7 @@ const OnceLayout = ({ news }) => {
     try {
       const size = 1;
 
-      const response = await axios.get("service.team-4.svc.cluster.local:8080/api/v1/recommends", {
+      const response = await axios.get("http://service.team-4.svc.cluster.local:8080/api/v1/recommends", {
         params: {
           page: 0,
           size: size,

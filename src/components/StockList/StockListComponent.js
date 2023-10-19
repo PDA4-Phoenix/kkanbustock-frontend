@@ -3,7 +3,7 @@ import "./StockListComponent.css";
 import StockListCover from "./StockListCover";
 import StockListItem from "./StockListItem";
 import WhiteContentBtn from "./../ButtonComponent/WhiteContentBtn";
-import axios from 'axios';
+import axios from "axios";
 
 function StockListComponent({
   width,
@@ -16,8 +16,10 @@ function StockListComponent({
 
   useEffect(() => {
     axios
-      .get(`service.team-4.svc.cluster.local:8080
-      /api/v1/portfolios/${memberId}`)
+      .get(
+        `http://service.team-4.svc.cluster.local:8080
+      /api/v1/portfolios/${memberId}`
+      )
       .then((response) => {
         const data = response.data;
         setStockDataList(data);

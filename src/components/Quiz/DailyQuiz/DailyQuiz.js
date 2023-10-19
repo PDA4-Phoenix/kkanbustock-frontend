@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./DailyQuiz.css";
-import axios from 'axios';
+import axios from "axios";
 
 function DailyQuiz({ memberId }) {
   const [quiz, setQuiz] = useState({
@@ -19,7 +19,9 @@ function DailyQuiz({ memberId }) {
 
   const fetchQuiz = async () => {
     try {
-      const response = await axios.get(`service.team-4.svc.cluster.local:8080/api/v1/quizzes/daily/${memberId}`);
+      const response = await axios.get(
+        `http://service.team-4.svc.cluster.local:8080/api/v1/quizzes/daily/${memberId}`
+      );
       if (response.data) {
         const data = response.data;
         setQuiz({
@@ -71,11 +73,14 @@ function DailyQuiz({ memberId }) {
     }
 
     try {
-      await axios.post(`service.team-4.svc.cluster.local:8080/api/v1/quizzes/daily`, {
-        memberId: memberId,
-        stockQuizId: quiz.quizId,
-        isCorrect: isAnswerCorrect,
-      });
+      await axios.post(
+        `http://service.team-4.svc.cluster.local:8080/api/v1/quizzes/daily`,
+        {
+          memberId: memberId,
+          stockQuizId: quiz.quizId,
+          isCorrect: isAnswerCorrect,
+        }
+      );
 
       console.log("POST 요청 성공: 문제 푼 상태 업데이트 완료");
     } catch (error) {

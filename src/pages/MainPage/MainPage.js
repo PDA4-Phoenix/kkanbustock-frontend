@@ -9,7 +9,7 @@ import BottomLayout from "../../components/MainPage/layout/bottom.layout";
 import OnceLayout from "../../components/MainPage/layout/once.layout";
 import InfiniteScroll from "react-infinite-scroll-component";
 import SecondTop from "../../components/MainPage/layout/secondtop.layout";
-import axios from 'axios';
+import axios from "axios";
 
 function Main() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -30,12 +30,15 @@ function Main() {
 
   const fetchNewsData = async () => {
     try {
-      const response = await axios.get("service.team-4.svc.cluster.local:8080/api/v1/news", {
-        params: {
-          page1,
-          size,
-        },
-      });
+      const response = await axios.get(
+        "http://service.team-4.svc.cluster.local:8080/api/v1/news",
+        {
+          params: {
+            page1,
+            size,
+          },
+        }
+      );
       const newNewsData = response.data;
       setNewsData((prevNewsData) => [...prevNewsData, ...newNewsData]);
       setPage(page + 1);
@@ -46,11 +49,14 @@ function Main() {
 
   const fetchTopNGroups = async () => {
     try {
-      const response2 = await axios.get("service.team-4.svc.cluster.local:8080/api/v1/groups/top-n-groups", {
-        params: {
-          n: 3,
-        },
-      });
+      const response2 = await axios.get(
+        "http://service.team-4.svc.cluster.local:8080/api/v1/groups/top-n-groups",
+        {
+          params: {
+            n: 3,
+          },
+        }
+      );
       setTopNGroups(response2.data);
     } catch (error) {
       console.error("Top N 그룹 데이터 불러오기 실패", error);
@@ -60,7 +66,7 @@ function Main() {
   const fetchTopNMyGroups = async () => {
     try {
       const response3 = await axios.get(
-        "service.team-4.svc.cluster.local:8080/api/v1/groups/my-groups-profit-rate",
+        "http://service.team-4.svc.cluster.local:8080/api/v1/groups/my-groups-profit-rate",
         {
           params: {
             n: 5,
@@ -92,7 +98,9 @@ function Main() {
 
   const fetchDictionaryData = async () => {
     try {
-      const response5 = await axios.get("service.team-4.svc.cluster.local:8080/api/v1/dictionary");
+      const response5 = await axios.get(
+        "http://service.team-4.svc.cluster.local:8080/api/v1/dictionary"
+      );
       return response5.data;
     } catch (error) {
       console.error("사전 데이터 가져오기 실패", error);
@@ -108,12 +116,15 @@ function Main() {
 
   const fetchStockRecommendations = async () => {
     try {
-      const response = await axios.get("service.team-4.svc.cluster.local:8080/api/v1/recommends", {
-        params: {
-          page: 1,
-          size: 100,
-        },
-      });
+      const response = await axios.get(
+        "http://service.team-4.svc.cluster.local:8080/api/v1/recommends",
+        {
+          params: {
+            page: 1,
+            size: 100,
+          },
+        }
+      );
       const newStockData = response.data.content;
       setStockData(newStockData);
     } catch (error) {
@@ -123,12 +134,15 @@ function Main() {
 
   const fetchMoreNewsData = async () => {
     try {
-      const response7 = await axios.get("service.team-4.svc.cluster.local:8080/api/v1/news", {
-        params: {
-          page1: page,
-          size,
-        },
-      });
+      const response7 = await axios.get(
+        "http://service.team-4.svc.cluster.local:8080/api/v1/news",
+        {
+          params: {
+            page1: page,
+            size,
+          },
+        }
+      );
       const newNewsData = response7.data;
       if (newNewsData.length > 0) {
         setNewsData((prevNewsData) => [...prevNewsData, ...newNewsData]);
