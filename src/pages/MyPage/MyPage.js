@@ -9,9 +9,10 @@ import My_grpBell from "./../../assets/images/bell.png";
 import "./MyPage.css";
 import PopupInvestType from "../../components/PopUpComponent/PopupInvestType";
 import PopupPortfolio from "../../components/PopUpComponent/PopupPortfolio";
-import PopupGrpAlarm from "../../components/PopUpComponent/PopupGrpAlarm";
 import PopupPortRecommandStock from "../../components/PopUpComponent/PopupRecommandStock";
+import PopupGrpAlarm from "../../components/PopUpComponent/PopupGrpAlarm";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom'; // 추가
 
 // 더미데이터
 const componentContent = { imgSrc: SOL_welcome, inputTitle: "내 정보" };
@@ -48,23 +49,10 @@ const stockDataList = [
     purchasePrice: 2183729,
   },
 
-  // 다른 객체들도 여기에 추가 가능
 ];
 
 function MyPage() {
-  const handleLogout = async () => {
-    axios
-      .post("http://service.team-4.svc.cluster.local:8080/api/v1/logout", {
-        //토큰 삭제하기
-      })
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((e) => {
-        console.log(e);
-        alert("로그아웃에 실패");
-      });
-  };
+  const navigate = useNavigate(); // navigate 훅 추가
 
   //My투자 성향 팝업
   const [isInvestTypeModalOpen, setIsInvestTypeModalOpen] = useState(false);
@@ -91,6 +79,21 @@ function MyPage() {
 
   const openPopupGrpAlarm = () => setIsPopupGrpAlarmOpen(true);
   const closePopupGrpAlarm = () => setIsPopupGrpAlarmOpen(false);
+
+  const handleLogout = async () => {
+    axios
+      .post("http://service.team-4.svc.cluster.local:8080/api/v1/logout", {
+        //토큰 삭제하기
+      })
+      .then((res) => {
+        console.log(res.data);
+        navigate('/'); // 홈 페이지로 이동
+      })
+      .catch((e) => {
+        console.log(e);
+        alert("로그아웃에 실패");
+      });
+  };
 
   return (
     <div>

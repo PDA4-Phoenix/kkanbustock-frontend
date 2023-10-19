@@ -22,30 +22,30 @@ function App() {
 
   return (
     <MemberIdProvider>
-    <BrowserRouter>
-    <TokenProvider>
-        <MemberProvider>
-      <div className="App">
-        <Nav />
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/My" element={<MyPage />} />
-          <Route path="/Quiz" element={<QuizPage />} />
-          <Route path="/Rival" element={<RivalPage />} />
-          <Route path="/Dictionary" element={<DictionaryPage />} />
-          <Route path="/Signup" element={<SignupPage />} />
-          <Route path="/InvestType/Intro" element={<InvestType_intro />} />
-          <Route path="/InvestType/Question" element={<InvestType_question />} />
-          <Route path="/InvestQuestion/Result" element={<InvestType_result />} />
-          <Route path="/CreateGroup" element={<CreateGroupPage />} />
-          <Route path="/CompleteGroup" element={<CompleteGroupPage />} />
-
-          <Route path="/Login" element={<LoginPage />} />
-        </Routes>
-      </div>
-      </MemberProvider>
-      </TokenProvider>
-    </BrowserRouter>
+      <BrowserRouter>
+        <TokenProvider>
+          <MemberProvider>
+            <div className="App">
+              
+              {window.location.pathname !== '/Login' && window.location.pathname !== '/Signup' && <Nav />}
+              <Routes>
+                <Route path="/" element={<MainPage />} />
+                <Route path="/My" element={<MyPage />} />
+                <Route path="/Quiz" element={<QuizPage />} />
+                <Route path="/Rival" element={<RivalPage />} />
+                <Route path="/Dictionary" element={<DictionaryPage />} />
+                <Route path="/InvestType/Intro" element={<InvestType_intro />} />
+                <Route path="/InvestType/Question" element={<InvestType_question />} />
+                <Route path="/InvestQuestion/Result" element={<InvestType_result />} />
+                <Route path="/CreateGroup" element={<CreateGroupPage />} />
+                <Route path="/CompleteGroup" element={<CompleteGroupPage />} />
+                <Route path="/Login" element={<LoginPage />} />
+                <Route path="/Signup" element={<SignupPage />} />
+              </Routes>
+            </div>
+          </MemberProvider>
+        </TokenProvider>
+      </BrowserRouter>
     </MemberIdProvider>
   );
 }

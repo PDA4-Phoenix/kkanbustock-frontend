@@ -1,20 +1,22 @@
-import React, { useState, useEffect } from 'react';
+// SignUpPage.js
+import React, { useState } from 'react';
 import Header from '../../components/Header/Header';
 import styles from './SignUpPage.module.css';
 import axios from 'axios';
-import { useNavigate, Link } from 'react-router-dom'; 
-
+import { useNavigate } from 'react-router-dom';
+import { useMemberId } from '../MemberIdContext';
 
 function SignUpPage() {
-    const navigate = useNavigate(); // useNavigate를 사용
+    const navigate = useNavigate();
     const [id, setAccount] = useState('');
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [customEmail, setCustomEmail] = useState(''); // Custom email input
+    const [customEmail, setCustomEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [passwordMatch, setPasswordMatch] = useState(true);
 
+    const memberId = useMemberId(); // 사용자 ID 가져오기
 
     const handleSignUp = async () => {
         axios.post('http://service.team-4.svc.cluster.local:8080/api/v1/register', {
@@ -24,12 +26,17 @@ function SignUpPage() {
             password: password
         }).then(res => {
             console.log(res.data);
-            navigate('/'); // '/' 경로로 이동 (MainPage로 이동)
+
+            // 회원가입 성공 후 memberId를 업데이트
+            // 단, 회원가입할 때 memberId를 localStorage에도 저장하려면 아래 코드 필요
+            // localStorage.setItem('user', JSON.stringify({ id }));
+
+            navigate('/');
         }).catch((e)=> {
             console.log(e);
         })
     };
-    
+
     const handleInputAccount = (e) => {
         setAccount(e.target.value);
     }
