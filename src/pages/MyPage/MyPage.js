@@ -11,8 +11,7 @@ import PopupInvestType from '../../components/PopUpComponent/PopupInvestType';
 import PopupPortfolio from '../../components/PopUpComponent/PopupPortfolio';
 import PopupGrpAlarm from '../../components/PopUpComponent/PopupGrpAlarm';
 import PopupPortRecommandStock from '../../components/PopUpComponent/PopupRecommandStock';
-import { axiosF } from "../../apis";
-import { useMemberId } from '../../MemberIdContext'; // MemberIdContext에서 useMemberId 가져오기
+import axios from 'axios'
 
 
 // 더미데이터
@@ -21,17 +20,18 @@ const userInfo = { nickname: "dd", userid: "dd", userInvestType: "공격투자�
 const stockDataList = [];
 
 function MyPage() {
-  
-  const memberId = useMemberId(); // useMemberId 훅으로 memberId 가져오기
-  const handleLogout = async () => {
-    axiosF.post('/api/v1/logout', {
-      // 토큰 삭제하기
-    }).then(res => {
-        console.log(res.data);
-    }).catch((e)=> {
-        console.log(e);
-    });
-  };
+
+      const handleLogout = async () => {
+        axios.post('service.team-4.svc.cluster.local:8080/api/v1/logout', {
+          //토큰 삭제하기 
+          
+        }).then(res => {
+            console.log(res.data);
+        }).catch((e)=> {
+            console.log(e);
+            alert('로그아웃에 실패');
+        })
+    };
 
   // My투자 성향 팝업
   const [isInvestTypeModalOpen, setIsInvestTypeModalOpen] = useState(false);

@@ -9,7 +9,7 @@ import BottomLayout from "../../components/MainPage/layout/bottom.layout";
 import OnceLayout from "../../components/MainPage/layout/once.layout";
 import InfiniteScroll from "react-infinite-scroll-component";
 import SecondTop from "../../components/MainPage/layout/secondtop.layout";
-import { axiosF } from "../../apis";
+import axios from 'axios';
 
 function Main() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -30,7 +30,7 @@ function Main() {
 
   const fetchNewsData = async () => {
     try {
-      const response = await axiosF.get("/api/v1/news", {
+      const response = await axios.get("service.team-4.svc.cluster.local:8080/api/v1/news", {
         params: {
           page1,
           size,
@@ -46,7 +46,7 @@ function Main() {
 
   const fetchTopNGroups = async () => {
     try {
-      const response2 = await axiosF.get("/api/v1/groups/top-n-groups", {
+      const response2 = await axios.get("service.team-4.svc.cluster.local:8080/api/v1/groups/top-n-groups", {
         params: {
           n: 3,
         },
@@ -59,8 +59,8 @@ function Main() {
 
   const fetchTopNMyGroups = async () => {
     try {
-      const response3 = await axiosF.get(
-        "/api/v1/groups/my-groups-profit-rate",
+      const response3 = await axios.get(
+        "service.team-4.svc.cluster.local:8080/api/v1/groups/my-groups-profit-rate",
         {
           params: {
             n: 5,
@@ -92,7 +92,7 @@ function Main() {
 
   const fetchDictionaryData = async () => {
     try {
-      const response5 = await axiosF.get("/api/v1/dictionary");
+      const response5 = await axios.get("service.team-4.svc.cluster.local:8080/api/v1/dictionary");
       return response5.data;
     } catch (error) {
       console.error("사전 데이터 가져오기 실패", error);
@@ -108,7 +108,7 @@ function Main() {
 
   const fetchStockRecommendations = async () => {
     try {
-      const response = await axiosF.get("/api/v1/recommends", {
+      const response = await axios.get("service.team-4.svc.cluster.local:8080/api/v1/recommends", {
         params: {
           page: 1,
           size: 100,
@@ -123,7 +123,7 @@ function Main() {
 
   const fetchMoreNewsData = async () => {
     try {
-      const response7 = await axiosF.get("/api/v1/news", {
+      const response7 = await axios.get("service.team-4.svc.cluster.local:8080/api/v1/news", {
         params: {
           page1: page,
           size,

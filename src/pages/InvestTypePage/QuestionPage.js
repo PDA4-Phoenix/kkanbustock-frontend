@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import "./QuestionPage.css";
 import SOL_happy from "./../../assets/images/SOL_happy.png";
 import Quiz from "./../../assets/images/quiz1.png";
-import {axiosF} from "../../apis";
+import axios from 'axios';
 
 function InvestType_question() {
     const [quizNumber, setQuizNumber] = useState(0);
@@ -16,7 +16,7 @@ function InvestType_question() {
 
 
     useEffect(() => {
-        axiosF.get('/api/v1/risk-profile-questions')
+        axios.get('service.team-4.svc.cluster.local:8080/api/v1/risk-profile-questions')
             .then((response) => {
                 setQuestions(response.data);
                 setLoading(false); // 데이터 로드가 완료되면 loading 상태를 false로 변경
@@ -33,7 +33,7 @@ function InvestType_question() {
 
 
         if (quizNumber === questions.length - 1) {
-            await axiosF.post('/api/v1/submit-user-answers', {
+            await axios.post('service.team-4.svc.cluster.local:8080/api/v1/submit-user-answers', {
                 params : userAnswers,
             }).catch((error) => {
                 console.error('Error submitting answers:', error);

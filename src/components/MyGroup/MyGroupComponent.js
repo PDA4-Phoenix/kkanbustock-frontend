@@ -10,7 +10,7 @@ function MyGroupComponent({ memberId, onGroupItemClick }) {
 
   useEffect(() => {
     // API 호출
-    axios.get(`/api/v1/groups/${memberId}`)
+    axios.get(`service.team-4.svc.cluster.local:8080/api/v1/groups/${memberId}`)
       .then(response => {
         setGroupData(response.data); // API 응답 데이터를 state에 설정
       })

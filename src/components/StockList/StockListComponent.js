@@ -3,7 +3,7 @@ import "./StockListComponent.css";
 import StockListCover from "./StockListCover";
 import StockListItem from "./StockListItem";
 import WhiteContentBtn from "./../ButtonComponent/WhiteContentBtn";
-import { axiosF } from "../../apis";
+import axios from 'axios';
 
 function StockListComponent({
   width,
@@ -15,8 +15,9 @@ function StockListComponent({
   const [manyStockName, setManyStockName] = useState(""); // 가장 많이 투자한 종목을 저장할 상태
 
   useEffect(() => {
-    axiosF
-      .get(`/api/v1/portfolios/${memberId}`)
+    axios
+      .get(`service.team-4.svc.cluster.local:8080
+      /api/v1/portfolios/${memberId}`)
       .then((response) => {
         const data = response.data;
         setStockDataList(data);

@@ -6,7 +6,6 @@ import SOL_Happy from "./../../assets/images/SOL_exciting.png";
 import SOL_Sad from "./../../assets/images/SOL_worry.png";
 
 
-import axios from 'axios';
 function ViewMyScore({ memberId , totalProfitRate, matchResult }) {
 
 

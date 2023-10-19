@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import "./ViewScoreComponent.css";
 import ViewMyScore from './ViewMyScore';
 import ViewRivalScore from './ViewRivalScore';
+import axios from 'axios';
 
 function ViewScoreComponent({ memberId, guestId }) {
   const [memberTotalProfitRate, setMemberTotalProfitRate] = useState(null);
   const [guestTotalProfitRate, setGuestTotalProfitRate] = useState(null);
 
   useEffect(() => {
-    axios.get(`/api/v1/portfolios/profits/${memberId}`)
+    axios.get(`service.team-4.svc.cluster.local:8080/api/v1/portfolios/profits/${memberId}`)
       .then((response) => {
         const data = response.data;
         if (data) {
@@ -24,7 +24,7 @@ function ViewScoreComponent({ memberId, guestId }) {
       });
 
     if (guestId) {
-      axios.get(`/api/v1/portfolios/profits/${guestId}`)
+      axios.get(`service.team-4.svc.cluster.local:8080/api/v1/portfolios/profits/${guestId}`)
         .then((response) => {
           const data = response.data;
           if (data) {

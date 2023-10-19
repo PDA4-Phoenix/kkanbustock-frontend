@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import "./ViewRivalScore.css";
 import ViewScoreInfo from './ViewScoreInfo';
 import PLI_GO from './../../assets/images/PLI_GO.png';

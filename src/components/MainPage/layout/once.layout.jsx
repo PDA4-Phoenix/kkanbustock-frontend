@@ -4,7 +4,7 @@ import onceLayoutStyles from '../styles/once-layout.module.css';
 import NewsBox from '../news-box';
 import InvestmentAppetiteBox from '../investment-appetite-box';
 import StockBox from '../stock-box';
-import { axiosF } from '../../../apis';
+import axios from 'axios';
 
 const OnceLayout = ({ news }) => {
   // 주식 정보를 저장할 상태
@@ -15,7 +15,7 @@ const OnceLayout = ({ news }) => {
     try {
       const size = 1;
 
-      const response = await axiosF.get("/api/v1/recommends", {
+      const response = await axios.get("service.team-4.svc.cluster.local:8080/api/v1/recommends", {
         params: {
           page: 0,
           size: size,

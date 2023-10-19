@@ -1,8 +1,8 @@
-import axios from "axios";
+import {axiosF} from "../apis";
 
 export const fetchDictionaryData = async () => {
   try {
-    const response = await axios.get("/api/v1/dictionary");
+    const response = await axiosF.get("/api/v1/dictionary");
     return response.data;
   } catch (error) {
     console.error("데이터 불러오기 실패", error);
@@ -18,7 +18,7 @@ export const fetchDictionaryData = async () => {
 
 export const fetchTopNGroups = async () => {
   try {
-    const response = await axios.get("/api/v1/groups/top-n-groups", {
+    const response = await axiosF.get("/api/v1/groups/top-n-groups", {
       params: {
         n: 3,
       },
@@ -32,7 +32,7 @@ export const fetchTopNGroups = async () => {
 
 export const fetchTopNMyGroups = async (memberId) => {
   try {
-    const response = await axios.get("/api/v1/groups/my-groups-profit-rate", {
+    const response = await axiosF.get("/api/v1/groups/my-groups-profit-rate", {
       params: {
         n: 5,
         memberId: memberId,
