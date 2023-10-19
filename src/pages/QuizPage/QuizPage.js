@@ -3,9 +3,9 @@ import "./QuizPage.css";
 import Header from "../../components/Header/Header";
 import DailyQuiz from "../../components/Quiz/DailyQuiz/DailyQuiz.js";
 import QuizHistory from "../../components/Quiz/QuizHistory/QuizHistory";
-import axios from "axios";
-import { useToken } from "../LoginPage/TokenContext";
-import { useMemberId } from "../LoginPage/MemberContext";
+import {axiosF} from "../../apis";
+import { useToken } from '../LoginPage/TokenContext';
+import { useMemberId } from '../LoginPage/MemberContext';
 
 function Quiz() {
   const getAxios = (token) => {
@@ -27,8 +27,8 @@ function Quiz() {
   };
 
   const [quizContents, setQuizContents] = useState([]); // API에서 가져온 데이터를 저장하는 상태
-  //   const { token } = useToken();
-  //   const { memberId } = useMemberId();
+//   const { token } = useToken();
+//   const { memberId } = useMemberId();
 
   const token =
     "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyNyIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE2OTc2NTU1MjEsImV4cCI6MTY5NzY5MTUyMX0.6uUkSyaB39VgSz8NbL_PU2opnrrgRJFkZO3IC6zZHlo";
