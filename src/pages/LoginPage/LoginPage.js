@@ -1,33 +1,33 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom'; // useNavigate로 수정
 import Header from '../../components/Header/Header';
 import './LoginPage.css';
-import { axiosF } from "../../apis";
+import axios from 'axios';
+import {axiosF} from "../../apis";
 
 function Login() {
-  const navigate = useNavigate(); // useNavigate를 사용
 
-  const getAxios = (token) => {
-    const config = {
-      baseURL: "http://localhost:8080",
-      headers: {
-        accept: "application/json",
-        "X-Requested-With": "XMLHttpRequest",
-      },
-    };
+    const getAxios = (token) => {
+        const config = {
+          baseURL: 'http://localhost:8080',
+          headers: {
+            'accept': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
+          }
+        };
+      
+        // 토큰이 존재할 경우에만 요청 헤더에 추가
+        if (token) {
+            console.log("토큰있다")
+            config.headers['authorization'] = `Bearer ${token}`;
+        }
+      
+        return axiosF.create(config);
+      }
 
-    // 토큰이 존재할 경우에만 요청 헤더에 추가
-    if (token) {
-      console.log("토큰있습니다.");
-      config.headers["authorization"] = `Bearer ${token}`;
-    }
-
-    return axiosF.create(config);
-  };
-
-  const [loginData, setLoginData] = useState({});
-  const [token, setToken] = useState("");
-  const [id, setId] = useState("");
+    
+    const [loginData, setLoginData] = useState({});
+    const [token, setToken] = useState('');
+    const [id, setId] = useState('');
 
   const handleInput = (e) => {
     setLoginData((prevData) => ({
@@ -36,33 +36,41 @@ function Login() {
     }));
   };
 
-  const onClickLogin = async () => {
-    try {
-      const { id, password } = loginData;
+    console.log(loginData)
 
-      console.log("@@@@@@@@@" + id + password);
+    const onClickLogin = async () => {
+        try {
+            const { id, password } = loginData;
 
-      const response = await getAxios().post("/api/v1/login", {
-        id,
-        password,
-      });
+            console.log("@@@@@@@@@" +id+password)
+            
+            const token = "";
+          const response = await getAxios(token).post('/api/v1/login', {
+            id,
+            password,
+          })
+      
+          // 서버로부터의 응답 처리
+          console.log('로그인 성공:', response.data);
 
-      // 서버로부터의 응답 처리
-      console.log("로그인 성공:", response.data);
-      const token = response.data.jwt;
+          setToken(response.data.jwt);
+          setId(response.data.member.id);
 
-      console.log(token);
-      setToken(token);
-      setId(response.data.member.id);
-
-      console.log(token);
-      console.log(id);
-
-      navigate("/"); // '/' 경로로 이동 (MainPage로 이동)
-    } catch (error) {
-      console.error("로그인 오류:", error.response.data);
-    }
-  };
+          localStorage.setItem('user',JSON.stringify({
+            id: id,
+            token: token,
+          })) 
+          
+          console.log(token);
+          console.log(id);
+      
+          // 로그인이 성공했을 때 원하는 작업을 수행할 수 있습니다.
+        } catch (error) {
+      
+          console.error('로그인 오류:', error.response.data);
+         
+        }
+      };
 
     return (
         <div>
