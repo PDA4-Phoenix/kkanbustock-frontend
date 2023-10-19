@@ -38,13 +38,17 @@ function MyGroupRanking({ topNMyGroups }) {
     <div className="containerForGroupRanking">
       <div className="headForRanking">나의 깐부들 TOP5</div>
       <div className="medalList2">
-        {processedData.map((data, index) => (
-          <div key={data.id} className={`top${index + 1}`}>
-            <img alt={data.alt} src={data.src} />
-            <div> {data.groupName} </div>
-            <div> 수익률: {data.groupRate} </div>
-          </div>
-        ))}
+        {processedData.length === 0 ? (
+          <p>아직 그룹이 없습니다</p>
+        ) : (
+          processedData.map((data, index) => (
+            <div key={data.id} className={`top${index + 1}`}>
+              <img alt={data.alt} src={data.src} />
+              <div> {data.groupName} </div>
+              <div> 수익률: {data.groupRate} </div>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );

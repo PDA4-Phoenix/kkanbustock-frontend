@@ -5,42 +5,22 @@ import silverMedal from "../../assets/images/medal/silver.png";
 import bronzeMedal from "../../assets/images/medal/dong.png";
 
 function MonthlyRank({ topNGroups }) {
-  let processedData;
-  const dummyData = [
-    {
-      id: 0,
-      alt: "1",
-      groupName: "신투깐부",
-      groupRate: "87%",
-      src: getMedalImage(0),
-    },
-    {
-      id: 1,
-      alt: "2",
-      groupName: "주식킹",
-      groupRate: "98%",
-      src: getMedalImage(1),
-    },
-    {
-      id: 2,
-      alt: "3",
-      groupName: "우리가 최고",
-      groupRate: "105%",
-      src: getMedalImage(2),
-    },
-  ];
+  const processedData = processGroupData(topNGroups);
   if (topNGroups.length === 0) {
-    processedData = dummyData;
-  } else {
-    processedData = processGroupData(topNGroups);
+    // topNGroups 배열의 길이가 0일 때, 임의의 값을 대신 사용
+    const dummyData = [
+      { ifgroupName: "야너주", groupRate: "87" },
+      { groupName: "주식킹", groupRate: "98" },
+      { groupName: "우리가 최고", groupRate: "105" },
+    ];
+    return dummyData;
   }
-
   function processGroupData(data) {
     // data 배열을 받아와서 가공
     return data.map((item, index) => ({
       id: index + 1,
-      alt: (index + 1).toString(),
-      src: getMedalImage(index + 1), // 수정: getMedalImage(id + 1) 대신 getMedalImage(index + 1)
+      alt: `그룹 이미지 ${index + 1}`,
+      src: getMedalImage(index),
       groupName: item.name,
       groupRate: `${item.profitRate}%`,
     }));
