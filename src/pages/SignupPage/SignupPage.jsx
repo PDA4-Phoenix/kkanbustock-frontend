@@ -31,7 +31,7 @@ function SignUpPage() {
             // 단, 회원가입할 때 memberId를 localStorage에도 저장하려면 아래 코드 필요
             // localStorage.setItem('user', JSON.stringify({ id }));
 
-            navigate('/');
+            navigate('/Signup');
         }).catch((e)=> {
             console.log(e);
         })
