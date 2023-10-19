@@ -5,8 +5,7 @@ import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom'; 
 
 function Login() {
-  const navigate = useNavigate(); // useNavigate를 사용
-
+  const navigate = useNavigate(); 
     const getAxios = (token) => {
         const config = {
           baseURL: 'service.team-4.svc.cluster.local:8080',
@@ -16,7 +15,6 @@ function Login() {
           }
         };
       
-        // 토큰이 존재할 경우에만 요청 헤더에 추가
         if (token) {
             console.log("토큰있다")
             config.headers['authorization'] = `Bearer ${token}`;
