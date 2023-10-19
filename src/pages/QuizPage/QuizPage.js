@@ -10,7 +10,7 @@ import { useMemberId } from "../LoginPage/MemberContext";
 function Quiz() {
   const getAxios = (token) => {
     const config = {
-      baseURL: "http://service.team-4.svc.cluster.local:8080",
+      baseURL: "app-team-4.shinhansec-pda.net",
       headers: {
         accept: "application/json",
         "X-Requested-With": "XMLHttpRequest",
@@ -39,7 +39,7 @@ function Quiz() {
     const fetchData = async () => {
       try {
         const response = await axios(token).get(
-          `http://service.team-4.svc.cluster.local:8080/api/v1/quizzes/${memberId}`
+          `/api/v1/quizzes/${memberId}`
         );
 
         console.log(token);

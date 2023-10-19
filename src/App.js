@@ -17,6 +17,7 @@ import InvestType_question from "./pages/InvestTypePage/QuestionPage";
 import InvestType_result from "./pages/InvestTypePage/ResultPage";
 import CompleteGroupPage from "./pages/MakeGroupPage/ViewGroupCodePage";
 import CreateGroupPage from "./pages/MakeGroupPage/CreateGroupPage";
+
 function App() {
   const [scroll, setScroll] = useState(0);
 

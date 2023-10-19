@@ -31,7 +31,7 @@ function Main() {
   const fetchNewsData = async () => {
     try {
       const response = await axios.get(
-        "http://service.team-4.svc.cluster.local:8080/api/v1/news",
+        "/api/v1/news",
         {
           params: {
             page1,
@@ -50,7 +50,7 @@ function Main() {
   const fetchTopNGroups = async () => {
     try {
       const response2 = await axios.get(
-        "http://service.team-4.svc.cluster.local:8080/api/v1/groups/top-n-groups",
+        "/api/v1/groups/top-n-groups",
         {
           params: {
             n: 3,
@@ -66,7 +66,7 @@ function Main() {
   const fetchTopNMyGroups = async () => {
     try {
       const response3 = await axios.get(
-        "http://service.team-4.svc.cluster.local:8080/api/v1/groups/my-groups-profit-rate",
+        "/api/v1/groups/my-groups-profit-rate",
         {
           params: {
             n: 5,
@@ -99,7 +99,7 @@ function Main() {
   const fetchDictionaryData = async () => {
     try {
       const response5 = await axios.get(
-        "http://service.team-4.svc.cluster.local:8080/api/v1/dictionary"
+        "/api/v1/dictionary"
       );
       return response5.data;
     } catch (error) {
@@ -117,7 +117,7 @@ function Main() {
   const fetchStockRecommendations = async () => {
     try {
       const response = await axios.get(
-        "http://service.team-4.svc.cluster.local:8080/api/v1/recommends",
+        "/api/v1/recommends",
         {
           params: {
             page: 1,
@@ -135,7 +135,7 @@ function Main() {
   const fetchMoreNewsData = async () => {
     try {
       const response7 = await axios.get(
-        "http://service.team-4.svc.cluster.local:8080/api/v1/news",
+        "/api/v1/news",
         {
           params: {
             page1: page,

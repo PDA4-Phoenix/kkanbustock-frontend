@@ -19,7 +19,7 @@ function SignUpPage() {
     const memberId = useMemberId(); // 사용자 ID 가져오기
 
     const handleSignUp = async () => {
-        axios.post('http://service.team-4.svc.cluster.local:8080/api/v1/register', {
+        axios.post('/api/v1/register', {
             id: id,
             name: name,
             email: email,

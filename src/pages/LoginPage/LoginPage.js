@@ -8,7 +8,7 @@ function Login() {
   const navigate = useNavigate();
   const getAxios = (token) => {
     const config = {
-      baseURL: "http://service.team-4.svc.cluster.local:8080",
+      baseURL: "app-team-4.shinhansec-pda.net",
       headers: {
         accept: "application/json",
         "X-Requested-With": "XMLHttpRequest",

@@ -82,7 +82,7 @@ function MyPage() {
 
   const handleLogout = async () => {
     axios
-      .post("http://service.team-4.svc.cluster.local:8080/api/v1/logout", {
+      .post("/api/v1/logout", {
         //토큰 삭제하기
       })
       .then((res) => {
