@@ -5,6 +5,7 @@ import QuizPage from "./pages/QuizPage/QuizPage.js";
 import DictionaryPage from "./pages/DictionaryPage/DictionaryPage";
 import RivalPage from "./pages/RivalPage/MainRivalPage";
 import Nav from "./components/Nav/Nav.js";
+import { MemberIdProvider } from './MemberIdContext';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import MyPage from "./pages/MyPage/MyPage";
@@ -19,6 +20,7 @@ function App() {
   const [scroll, setScroll] = useState(0);
 
   return (
+    <MemberIdProvider>
     <BrowserRouter>
     <TokenProvider>
         <MemberProvider>
@@ -41,6 +43,7 @@ function App() {
       </MemberProvider>
       </TokenProvider>
     </BrowserRouter>
+    </MemberIdProvider>
   );
 }
 

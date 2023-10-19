@@ -53,7 +53,7 @@ function Nav() {
           </Link>
           <Link
             className={!shouldApplyStyle ? "navbarMenu" : "change_navbarMenu"}
-            to={"/My"}
+            to={"/Login"}
           >
             내정보
           </Link>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // useNavigate로 수정
+import { useNavigate, Link } from 'react-router-dom'; // useNavigate로 수정
 import Header from '../../components/Header/Header';
 import './LoginPage.css';
 import axios from 'axios'; 
@@ -88,7 +88,7 @@ function Login() {
                 </div>
                 <div>
                     <label id="explanation">로그인없이 들어갈 수 있어요</label>
-                    <label id="guestLogin">구경하기{'>'}</label>
+                    <Link to="/"><label id="guestLogin">구경하기{'>'}</label></Link>
                 </div>
             </div>
         </div>
