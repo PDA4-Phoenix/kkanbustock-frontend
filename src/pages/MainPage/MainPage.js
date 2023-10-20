@@ -31,7 +31,7 @@ function Main() {
   const fetchNewsData = async () => {
     try {
       const response = await axios.get(
-        "https://app-team-4.shinhansec-pda.net/api/v1/news",
+        "http://ec2-3-36-96-61.ap-northeast-2.compute.amazonaws.com:8080/api/v1/news",
         {
           params: {
             page1,
@@ -69,7 +69,7 @@ function Main() {
   const fetchTopNGroups = async () => {
     try {
       const response2 = await axios.get(
-        "https://app-team-4.shinhansec-pda.net/api/v1/groups/top-n-groups",
+        "http://ec2-3-36-96-61.ap-northeast-2.compute.amazonaws.com:8080/api/v1/groups/top-n-groups",
         {
           params: {
             n: 3,
@@ -85,7 +85,7 @@ function Main() {
   const fetchTopNMyGroups = async () => {
     try {
       const response3 = await axios.get(
-        "https://app-team-4.shinhansec-pda.net/api/v1/groups/my-groups-profit-rate",
+        "http://ec2-3-36-96-61.ap-northeast-2.compute.amazonaws.com:8080/api/v1/groups/my-groups-profit-rate",
         {
           params: {
             n: 5,
@@ -118,7 +118,7 @@ function Main() {
   const fetchDictionaryData = async () => {
     try {
       const response5 = await axios.get(
-        "https://app-team-4.shinhansec-pda.net/api/v1/dictionary"
+        "http://ec2-3-36-96-61.ap-northeast-2.compute.amazonaws.com:8080/api/v1/dictionary"
       );
       return response5.data;
     } catch (error) {
@@ -136,7 +136,7 @@ function Main() {
   const fetchStockRecommendations = async () => {
     try {
       const response = await axios.get(
-        "https://app-team-4.shinhansec-pda.net/api/v1/recommends",
+        "http://ec2-3-36-96-61.ap-northeast-2.compute.amazonaws.com:8080/api/v1/recommends",
         {
           params: {
             page: 1,
@@ -154,7 +154,7 @@ function Main() {
   const fetchMoreNewsData = async () => {
     try {
       const response7 = await axios.get(
-        "https://app-team-4.shinhansec-pda.net/api/v1/news",
+        "http://ec2-3-36-96-61.ap-northeast-2.compute.amazonaws.com:8080/api/v1/news",
         {
           params: {
             page1: page,

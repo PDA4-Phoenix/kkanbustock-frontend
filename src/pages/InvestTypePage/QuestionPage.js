@@ -16,7 +16,7 @@ function InvestType_question() {
   useEffect(() => {
     axios
       .get(
-        "https://app-team-4.shinhansec-pda.net/api/v1/risk-profile-questions"
+        "http://ec2-3-36-96-61.ap-northeast-2.compute.amazonaws.com:8080/api/v1/risk-profile-questions"
       )
       .then((response) => {
         setQuestions(response.data);
@@ -35,7 +35,7 @@ function InvestType_question() {
     if (quizNumber === questions.length - 1) {
       await axios
         .post(
-          "https://app-team-4.shinhansec-pda.net/api/v1/submit-user-answers",
+          "http://ec2-3-36-96-61.ap-northeast-2.compute.amazonaws.com:8080/api/v1/submit-user-answers",
           {
             params: userAnswers,
           }

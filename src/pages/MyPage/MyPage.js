@@ -55,7 +55,7 @@ function MyPage() {
       const handleLogout = async () => {
         try {
           // 서버에 로그아웃 요청을 보냅니다.
-          const response = await axios.post('https://app-team-4.shinhansec-pda.net/api/v1/logout');
+          const response = await axios.post('http://ec2-3-36-96-61.ap-northeast-2.compute.amazonaws.com:8080/api/v1/logout');
           
           // 서버에서 성공적으로 응답을 받았을 때의 처리
           if (response.status === 200) {

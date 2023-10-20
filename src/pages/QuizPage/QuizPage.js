@@ -3,14 +3,15 @@ import "./QuizPage.css";
 import Header from "../../components/Header/Header";
 import DailyQuiz from "../../components/Quiz/DailyQuiz/DailyQuiz.js";
 import QuizHistory from "../../components/Quiz/QuizHistory/QuizHistory";
-import {axiosF} from "../../apis";
+// import axios from "../../apis";
+import axios from 'axios'
 import { useToken } from '../LoginPage/TokenContext';
 import { useMemberId } from '../LoginPage/MemberContext';
 
 function Quiz() {
   const getAxios = (token) => {
     const config = {
-      baseURL: "https://app-team-4.shinhansec-pda.net",
+      baseURL: "http://ec2-3-36-96-61.ap-northeast-2.compute.amazonaws.com:8080",
       headers: {
         accept: "application/json",
         "X-Requested-With": "XMLHttpRequest",
@@ -39,7 +40,7 @@ function Quiz() {
     const fetchData = async () => {
       try {
         const response = await axios(token).get(
-          `https://app-team-4.shinhansec-pda.net/api/v1/quizzes/${memberId}`
+          `http://ec2-3-36-96-61.ap-northeast-2.compute.amazonaws.com:8080/api/v1/quizzes/${memberId}`
         );
 
         console.log(token);

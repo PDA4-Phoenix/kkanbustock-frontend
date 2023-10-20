@@ -37,7 +37,7 @@ function Nav() {
             className={!shouldApplyStyle ? "navbarMenu" : "change_navbarMenu"}
             to={"/Rival"}
           >
-            라이벌
+            깐부
           </Link>
           <Link
             className={!shouldApplyStyle ? "navbarMenu" : "change_navbarMenu"}

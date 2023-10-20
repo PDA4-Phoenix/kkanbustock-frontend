@@ -8,7 +8,7 @@ import { useNavigate, Link } from 'react-router-dom';
 function Login() {
   const getAxios = () => {
     return axios.create({
-      baseURL: "https://app-team-4.shinhansec-pda.net",
+      baseURL: "http://ec2-3-36-96-61.ap-northeast-2.compute.amazonaws.com:8080",
       headers: {
         accept: "application/json",
         "X-Requested-With": "XMLHttpRequest",

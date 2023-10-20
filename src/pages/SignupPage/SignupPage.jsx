@@ -16,7 +16,7 @@ function SignUpPage() {
 
 
     const handleSignUp = async () => {
-        axios.post('https://app-team-4.shinhansec-pda.net/api/v1/register', {
+        axios.post('http://ec2-3-36-96-61.ap-northeast-2.compute.amazonaws.com:8080/api/v1/register', {
             id: id,
             name: name,
             email: email,
